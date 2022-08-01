@@ -20,12 +20,15 @@ if (($StartIP.ToCharArray() | Where-Object {$_ -eq '.'} | Measure-Object).Count 
     $StartIP = $StartIP + ".1"
 }
 
+$Split = $StartIP.Split(".")
+$IP = [string]$split[0..($Split.count-2)]
+
 $Beginning = [int]$StartIP.Split('.')[-1]
 
 $Sensors = @()
 $Sensors = $Beginning..254 | Foreach-Object -Parallel {
     $Result = $null
-    $SensorIP = "10.50.60.$_"
+    $SensorIP = "$IP.$_"
 
     Write-Verbose "Sending ping to check connection to $SensorIP"
     if (-Not(Test-Connection -Ping -IPv4 $SensorIP -Count 1 -Quiet -ErrorAction SilentlyContinue))
