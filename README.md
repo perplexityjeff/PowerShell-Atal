@@ -1,5 +1,8 @@
 # PowerShell-Atal
-A PowerShell module to more easily automate sensor administration. The main reason for creating this was to automate and sync time (NTP) settings and the offset because of daylight saving. I ended creating multiple little scripts for various other purposes. 
+A PowerShell module to more easily automate ATAL sensor administration. The main reason for creating this was to automate and sync time (NTP) settings and the offset because of daylight saving. I ended creating multiple little scripts for various other purposes. 
+
+Website: https://www.atal.nl/
+I have no affliation with ATAL other than being a customer of their sensors.
 
 # WIP
 This repo is still a work in progress, I will work on it as I go. 
