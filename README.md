@@ -5,4 +5,7 @@ A PowerShell module to more easily automate sensor administration. The main reas
 This repo is still a work in progress, I will work on it as I go. 
 
 # Pull Requests
-Feel free to submit Pull Requests. 
+Feel free to submit Pull Requests, I will work on it and upload changes as I go but if you see any improvements that can be made feel free to suggest them.
+
+# Learning
+I am still and will always be learning. Do not expect perfection and feel free to send feedback :). 
