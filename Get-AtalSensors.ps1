@@ -20,8 +20,7 @@ if (($StartIP.ToCharArray() | Where-Object {$_ -eq '.'} | Measure-Object).Count 
     $StartIP = $StartIP + ".1"
 }
 
-$Split = $StartIP.Split(".")
-$IP = [string]$split[0..($Split.count-2)]
+$IP = $StartIP.SubString(0, $StartIP.LastIndexOf('.'))
 
 $Beginning = [int]$StartIP.Split('.')[-1]
 
