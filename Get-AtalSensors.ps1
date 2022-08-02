@@ -27,7 +27,7 @@ $Beginning = [int]$StartIP.Split('.')[-1]
 $Sensors = @()
 $Sensors = $Beginning..254 | Foreach-Object -Parallel {
     $Result = $null
-    $SensorIP = "$IP.$_"
+    $SensorIP = "$($using:IP).$_"
 
     Write-Verbose "Sending ping to check connection to $SensorIP"
     if (-Not(Test-Connection -Ping -IPv4 $SensorIP -Count 1 -Quiet -ErrorAction SilentlyContinue))
