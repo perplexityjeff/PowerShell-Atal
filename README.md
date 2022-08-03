@@ -23,7 +23,7 @@ I have no affliation with ATAL other than being a customer of their sensors.
 `$sensors | Select-Object -ExpandProperty SensorIP | Set-AtalSensorTime -TimeServer ntp.time.nl -TimeOffset 60 -AtalCredential $cred`
 
 # WIP
-This repo is still a work in progress, I will work on it as I go. 
+This repo is still a work in progress, I will work on it as I go. Currently this is not a module yet as I am still working on the scripts.
 
 # Pull Requests
 Feel free to submit Pull Requests, I will work on it and upload changes as I go but if you see any improvements that can be made feel free to suggest them.
