@@ -38,8 +38,10 @@ Process
                 "`ntmgo=$TimeOffset"+
                 "`n";
         $Result = Invoke-WebRequest -Uri ($AtalSensorPath + $AtalConfigPath) -Method Post -Body $Data -Headers $Headers
+   
+        $ReturnCode = ([regex]::Match(($Result.RawContent), '<code>(.*?)</code>').Groups[1].Value)
 
-        if ($Result.StatusDescription -ne 'OK')
+        if ($Result.StatusCode -ne 200 -and $ReturnCode -lt 900)
         {
             Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
         }
