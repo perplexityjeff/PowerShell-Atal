@@ -30,7 +30,7 @@ $Sensors = $Beginning..254 | Foreach-Object -Parallel {
     $SensorIP = "$($using:IP).$_"
 
     Write-Verbose "Sending ping to check connection to $SensorIP"
-    if (-Not(Test-Connection -Ping -IPv4 $SensorIP -Count 1 -Quiet -ErrorAction SilentlyContinue))
+    if (-Not(Test-Connection $SensorIP -Count 1 -Quiet -ErrorAction SilentlyContinue))
     {
         Write-Verbose "Ping check failed for $SensorIP, skipping"
         continue
