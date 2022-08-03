@@ -22,13 +22,14 @@ Process
         $AtalValuePath = "/values.xml"
 
         $Result =  (Invoke-RestMethod -Method Get -Uri ($AtalSensorPath + $AtalValuePath))
-        
-        $SensorDataTable += $Result.root
-
+       
         if (-Not($Result.root))
         {
             Write-Error "The request was not completed succesfully, please (re)connect the sensor $Sensor and try again."
+            Continue
         }
+        
+        $SensorDataTable += $Result.root
     }
 }
 
