@@ -14,7 +14,7 @@ I have no affliation with ATAL other than being a customer of their sensors.
 
 * After you have a list of sensors and an credential object you can start doing modifications using the IP address of the sensor and the credential object.
 
-`$cred = Get-AtalCredentials -Username 'admin' -Password 'password`
+`$cred = Get-AtalCredentials -Username 'admin' -Password 'password'`
 
 * You can also combine commands into each other so in our case we wanted to change all the sensors within an IP range to use a specific NTP server and a time offset.
 
