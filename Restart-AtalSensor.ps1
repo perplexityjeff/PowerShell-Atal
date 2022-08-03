@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param (
     [Parameter(ValueFromPipeline, Position=0,Mandatory=$true)][string[]]$SensorIP,
-    [Parameter(Position=3,Mandatory=$true)][string]$AtalCredential
+    [Parameter(Position=1,Mandatory=$true)][string]$AtalCredential
 )
 
 Process 
@@ -29,7 +29,7 @@ Process
 
         if ($Result.StatusCode -ne 200)
         {
-            Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
+            Write-Error "The request was not completed succesfully, please (re)connect the sensor $Sensor and try again."
         }
     }
 }
