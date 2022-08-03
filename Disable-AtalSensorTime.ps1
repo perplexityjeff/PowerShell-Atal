@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param (
     [Parameter(ValueFromPipeline, Position=0,Mandatory=$true)][string[]]$SensorIP,
-    [Parameter(Position=3,Mandatory=$true)][string]$AtalCredential
+    [Parameter(Position=1,Mandatory=$true)][string]$AtalCredential
 )
 
 Process 
