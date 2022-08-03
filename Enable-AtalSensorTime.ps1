@@ -42,7 +42,7 @@ Process
 
         $ReturnCode = ([regex]::Match(($Result.RawContent), '<code>(.*?)</code>').Groups[1].Value)
 
-        if ($Result.StatusCode -ne 200)
+        if ($Result.StatusCode -ne 200 -and ($ReturnCode -ne 950 -or $ReturnCode -ne 951))
         {
             Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
         }
