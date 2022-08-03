@@ -7,7 +7,7 @@ I have no affliation with ATAL other than being a customer of their sensors.
 
 # Usage
 * You can use the Get-AtalSensors scripts with for example parameter 192.168.0.1. This will scan the IP range 192.168.0.1 to 254 and look for ATAL sensors. It will output the IP address, name, serial number and firmware version. 
-* 
+
 `$sensors = Get-AtalSensors -StartIP 192.168.0.1`
 
 * All our sensors are protected using an username and password combination as such all commands to actually make modifications requires you to use an encoded version of these credentials to do more work. To more easily do this you can use Get-AtalCredential with a username and password and it will output the correct credential object to use in the scripts.  
