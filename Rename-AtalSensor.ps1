@@ -39,7 +39,7 @@ Process
 
         if ($Result.StatusCode -ne 200 -and ($ReturnCode -ne 150 -or $ReturnCode -ne 151))
         {
-            Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
+            Write-Error "The request was not completed succesfully, please (re)connect the sensor $Sensor and try again."
         }
     }
 }
