@@ -13,6 +13,7 @@ I have no affliation with ATAL other than being a customer of their sensors.
 * After you have a list of sensors and an credential object you can start doing modifications using the IP address of the sensor and the credential object.
 
 * You can also combine commands into each other so in our case we wanted to change all the sensors within an IP range to use a specific NTP server and a time offset.
+
 `Get-AtalSensors -StartIP 192.168.0.1 | Select-Object -ExpandProperty SensorIP | Set-AtalSensorTime -TimeServer ntp.time.nl -TimeOffset 60`
 
 # WIP
