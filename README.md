@@ -10,11 +10,15 @@ I have no affliation with ATAL other than being a customer of their sensors.
 
 * All our sensors are protected using an username and password combination as such all commands to actually make modifications requires you to use an encoded version of these credentials to do more work. To more easily do this you can use Get-AtalCredential with a username and password and it will output the correct credential object to use in the scripts.  
 
+`$sensors = Get-AtalSensors -StartIP 192.168.0.1'
+
 * After you have a list of sensors and an credential object you can start doing modifications using the IP address of the sensor and the credential object.
+
+`$cred = Get-AtalCredentials -Username 'admin' -Password 'password'
 
 * You can also combine commands into each other so in our case we wanted to change all the sensors within an IP range to use a specific NTP server and a time offset.
 
-`Get-AtalSensors -StartIP 192.168.0.1 | Select-Object -ExpandProperty SensorIP | Set-AtalSensorTime -TimeServer ntp.time.nl -TimeOffset 60`
+`$sensors | Select-Object -ExpandProperty SensorIP | Set-AtalSensorTime -TimeServer ntp.time.nl -TimeOffset 60 -AtalCredential $cred`
 
 # WIP
 This repo is still a work in progress, I will work on it as I go. 
