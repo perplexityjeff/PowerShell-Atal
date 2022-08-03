@@ -2,7 +2,7 @@
 param (
     [Parameter(ValueFromPipeline, Position=0,Mandatory=$true)][string[]]$SensorIP,
     [Parameter(ValueFromPipeline, Position=1,Mandatory=$true)][string]$SensorName,
-    [Parameter(Position=3,Mandatory=$true)][string]$AtalCredential
+    [Parameter(Position=2,Mandatory=$true)][string]$AtalCredential
 )
 
 Process 
@@ -37,7 +37,7 @@ Process
 
         $ReturnCode = ([regex]::Match(($Result.RawContent), '<code>(.*?)</code>').Groups[1].Value)
 
-        if ($Result.StatusCode -ne 200)
+        if ($Result.StatusCode -ne 200 -and ($ReturnCode -ne 150 -or $ReturnCode -ne 151))
         {
             Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
         }
