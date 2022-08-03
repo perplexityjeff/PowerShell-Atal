@@ -27,8 +27,6 @@ Process
 
         $Result = Invoke-WebRequest -Uri ($AtalSensorPath) -Method Post -Body $Data -Headers $Headers
 
-        $ReturnCode = ([regex]::Match(($Result.RawContent), '<code>(.*?)</code>').Groups[1].Value)
-
         if ($Result.StatusCode -ne 200)
         {
             Write-Error "The request was not completed succesfully, please (re)connect the sensor and try again."
