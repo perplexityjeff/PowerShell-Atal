@@ -12,7 +12,7 @@ I have no affliation with ATAL other than being a customer of their sensors.
 
 * You can also easily export and import this to an XML file using built-in PowerShell functions. 
 
-`Get-AtalSensors -StartIP 192.168.0.1 | Export-Clixml C:\sensors.xml`
+`$sensors | Export-Clixml C:\sensors.xml`
 
 `$sensors = Import-Clixml C:\sensors.xml`
 
