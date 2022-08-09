@@ -10,6 +10,12 @@ I have no affliation with ATAL other than being a customer of their sensors.
 
 `$sensors = Get-AtalSensors -StartIP 192.168.0.1`
 
+* You can also easily export and import this to an XML file using built-in PowerShell functions. 
+
+`Get-AtalSensors -StartIP 192.168.0.1 | Export-Clixml C:\sensors.xml`
+
+`$sensors = Import-Clixml C:\sensors.xml`
+
 * All our sensors are protected using an username and password combination as such all commands to actually make modifications requires you to use an encoded version of these credentials to do more work. To more easily do this you can use Get-AtalCredential with a username and password and it will output the correct credential object to use in the scripts.  
 
 `$cred = Get-AtalCredential -Username 'admin' -Password 'password'`
