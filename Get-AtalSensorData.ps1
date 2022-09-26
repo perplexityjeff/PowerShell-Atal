@@ -21,7 +21,7 @@ Process
         $AtalSensorPath = "http://$Sensor"
         $AtalValuePath = "/values.xml"
 
-        $Result =  (Invoke-RestMethod -Method Get -Uri ($AtalSensorPath + $AtalValuePath))
+        $Result = (Invoke-RestMethod -Method Get -Uri ($AtalSensorPath + $AtalValuePath))
        
         if (-Not($Result.root))
         {
