@@ -34,8 +34,8 @@ Process
         $Data="`ntype=9"+
                 "`ntmen=$CurrentTimeSyncEnabled"+
                 "`ntmhr=0"+
-                "`ntmip=$TimeServer"+
-                "`ntmgo=$TimeOffset"+
+                "`ntmip=$CurrentTimeServer"+
+                "`ntmgo=$CurrentTimeOffset"+
                 "`n";
         
         $Result = Invoke-WebRequest -Uri ($AtalSensorPath + $AtalConfigPath) -Method Post -Body $Data -Headers $Headers
