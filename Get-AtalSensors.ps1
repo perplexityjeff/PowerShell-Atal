@@ -39,23 +39,31 @@ $Sensors = $Beginning..254 | Foreach-Object -Parallel {
         Write-Verbose "Trying to connect to $SensorIP"
         $Result = Invoke-WebRequest -Uri "http://$SensorIP/library.html" -DisableKeepAlive -TimeoutSec 2
 
-        if ($Result.RawContent -like "*Serial number*")
+        $Result = Invoke-WebRequest -Uri "http://$SensorIP/library.html" -DisableKeepAlive -TimeoutSec 2
+
+        if ($Result.RawContent -notlike "*Serial number*")
         {
-            $SensorName = ([regex]::Match(($Result.RawContent), '<title>(.*?)</title>').Groups[1].Value)
-            $SerialNumber = ([regex]::Match(($Result.RawContent), 'Serial number</div>(.*?)<').Groups[1].Value)
-            $Firmware = ([regex]::Match(($Result.RawContent), 'Firmware version</div>(.*?)<').Groups[1].Value)
-
-            Write-Verbose "Atal Sensor: $SensorIP found"
-            
-            $Sensor = New-Object psobject -Property @{`
-                "SensorName" = $SensorName
-                "SerialNumber" = $SerialNumber
-                "Firmware" = $Firmware
-                "SensorIP" = $SensorIP
+            $Result = Invoke-WebRequest -Uri "http://$SensorIP/about.html" -DisableKeepAlive -TimeoutSec 2
+            if ($Result.RawContent -notlike "*Serial number*")
+            {
+                continue
             }
+        }  
+        
+        $SensorName = ([regex]::Match(($Result.RawContent), '<title>(.*?)</title>').Groups[1].Value)
+        $SerialNumber = ([regex]::Match(($Result.RawContent), 'Serial number</div>(.*?)<').Groups[1].Value)
+        $Firmware = ([regex]::Match(($Result.RawContent), 'Firmware version</div>(.*?)<').Groups[1].Value)
 
-            return $Sensor
+        Write-Verbose "Atal Sensor: $SensorIP found"
+        
+        $Sensor = New-Object psobject -Property @{`
+            "SensorName" = $SensorName
+            "SerialNumber" = $SerialNumber
+            "Firmware" = $Firmware
+            "SensorIP" = $SensorIP
         }
+
+        return $Sensor
     }
     catch {}
 }
