@@ -2,6 +2,7 @@
 A PowerShell module to more easily automate ATAL / Comet Systems sensor administration. The main reason for creating this was to automate and sync time (NTP) settings and the offset because of daylight saving. I ended creating multiple little scripts for various other purposes. 
 
 Website: https://www.atal.nl/
+
 Website: https://www.cometsystem.com/
 
 I have no affliation with ATAL or Comet Systems other than being a customer / end user of their sensors.
