@@ -1,9 +1,10 @@
 # PowerShell-Atal
-A PowerShell module to more easily automate ATAL sensor administration. The main reason for creating this was to automate and sync time (NTP) settings and the offset because of daylight saving. I ended creating multiple little scripts for various other purposes. 
+A PowerShell module to more easily automate ATAL / Comet Systems sensor administration. The main reason for creating this was to automate and sync time (NTP) settings and the offset because of daylight saving. I ended creating multiple little scripts for various other purposes. 
 
 Website: https://www.atal.nl/
+Website: https://www.cometsystem.com/
 
-I have no affliation with ATAL other than being a customer of their sensors.
+I have no affliation with ATAL or Comet Systems other than being a customer / end user of their sensors.
 
 # Usage
 * You can use the Get-AtalSensors scripts with for example parameter 192.168.0.1. This will scan the IP range 192.168.0.1 to 254 and look for ATAL sensors. It will output the IP address, name, serial number and firmware version. 
