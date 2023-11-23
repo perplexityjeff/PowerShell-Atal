@@ -5,7 +5,7 @@ Website: https://www.atal.nl/
 
 Website: https://www.cometsystem.com/
 
-I have no affliation with ATAL or Comet Systems other than being a customer / end user of their sensors.
+I have no affliation with ATAL or Comet Systems other than being a customer / end user of their sensors. The scripts and module is called PowerShell-Atal as that company is my primary method of contact and buying these sensors. I understand that they are actually Comet Systems sensors.
 
 # Usage
 * You can use the Get-AtalSensors scripts with for example parameter 192.168.0.1. This will scan the IP range 192.168.0.1 to 254 and look for ATAL sensors. It will output the IP address, name, serial number and firmware version. 
