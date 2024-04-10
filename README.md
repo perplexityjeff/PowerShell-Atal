@@ -25,11 +25,13 @@ I have no affliation with ATAL or Comet Systems other than being a customer / en
 * After you have a list of sensors and an credential object you can start doing modifications using the IP address of the sensor and the credential object. For instance changing the time server and offset values.
 
 `$TimeOffset = (([System.DateTimeOffset]::Now).TotalOffsetMinutes)`
+
 `Set-AtalSensorTime -SensorIP 192.168.0.20 -TimeServer ntp.time.nl -TimeOffset $TimeOffset -AtalCredential $cred`
 
 * You can also combine commands into each other so in our case we wanted to change all the sensors within an IP range to use a specific NTP server and a time offset.
 
 `$TimeOffset = (([System.DateTimeOffset]::Now).TotalOffsetMinutes)`
+
 `$sensors | Select-Object -ExpandProperty SensorIP | Set-AtalSensorTime -TimeServer ntp.time.nl -TimeOffset $TimeOffset -AtalCredential $cred`
 
 # WIP
